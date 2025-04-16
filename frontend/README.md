@@ -20,6 +20,7 @@ frontend/
 │   ├── assets/
 │   ├── components/
 │   ├── App.vue
+│   ├── style.css
 │   └── main.js
 ├── index.html
 ├── package.json
