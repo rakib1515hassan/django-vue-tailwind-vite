@@ -33,41 +33,55 @@ deactivate
 ```
 
 
+## 4. Upgrade PIP
 
-## 4. Install Requirement Txt Files
+```bash
+python.exe -m pip install --upgrade pip
+```
+
+
+
+## 5. Install Requirement Txt Files
 ```bash
 pip install -r requirements.txt
 ```
 
 
-## 5. Create and Copy .env file
+## 6. Create and Copy .env file
 ```bash
 copy .env.example .env
 ```
 
 
-## 6. Makemigration
+## 7. Makemigration
 ```bash
 python manage.py makemigrations
 ```
 
 
 
-## 7. Migrate
+## 8. Migrate
 ```bash
 python manage.py migrate
 ```
 
 
 
-## 8. Create Superuser
+## 9. Create Superuser
 ```bash
 python manage.py createsuperuser
 ```
+### Email:
+```bash
+admin@test.com
+```
+### Password:
+```bash
+admin
+```
 
 
-
-## 9. Now can Login
+## 10. Now can Login
 ```bash
 python manage.py runserver
 ```
