@@ -85,7 +85,7 @@ admin
 ```
 
 
-## 10. Now can Login
+## 10. Now can run the Django server
 ```bash
 python manage.py runserver
 ```
