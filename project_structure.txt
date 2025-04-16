@@ -38,7 +38,7 @@ django-template /
 │   ├── __init__.py
 │   └── "My All Apis Define in here"              
 │
-├── frontend/        // Here i setup my Vue project                 
+├── frontend/                             ← Vue 3 with Vite project                
 │   ├── public/
 │   ├── src/
 |   │   ├── assets/
@@ -53,19 +53,19 @@ django-template /
 │
 │
 ├── templates/             
-│   ├── base.html
-│   └── 404.html
+│   └── layouts/
+|       └── master.html
 │
-├── static/                 
+├── static/                             ← Django dev static files             
 │   ├── css/
 │   ├── js/
-│   └── vue/
+│   └── vue/                            ← Vite build output here
 |       ├── assets/main.js
 |       └── assets/style.css
+|
+├── static_root/                        ← Django collectstatic output
 │
 ├── media/                 
 │
 └── README.md           
 
-
-Install Vue project like: npm create vite@latest my-vue-app -- --template vue

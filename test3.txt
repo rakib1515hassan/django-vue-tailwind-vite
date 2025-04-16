@@ -1,2 +1,168 @@
-I create a vue 3 project infront of the Django Project. 
-My project stracture 
+আমি একটি Django Project create করেছি, তার ভেতরে Vue Project create করেছি।
+
+আমার Project Stracture:
+
+django-template /
+│
+├── manage.py
+├── requirements.txt
+├── .env
+│
+├── config/              
+│   ├── __init__.py
+│   ├── settings/   
+|   |   ├── __init__.py
+|   │   ├── base.py      
+|   │   ├── local.py
+|   │   ├── production.py
+|   │   └── test.py 
+|   │    
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── apps/                   
+│   ├── __init__.py
+│   └── "My All Apps Define in here"             
+│
+├── frontend/        // এখানে আমি Vue Project Create করেছি              
+│   ├── public/
+│   ├── src/
+|   │   ├── assets/
+|   │   ├── components/
+|   │   ├── App.vue
+|   │   ├── main.js
+|   │   └── style.css
+│   |
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+│
+│
+├── templates/             
+│   └── layouts/
+|       └── master.html
+│
+├── static/                 
+│   ├── css/
+│   ├── js/
+│   └── vue/
+|       ├── assets/main.js
+|       └── assets/style.css
+│
+├── media/                 
+│
+└── README.md           
+
+Vue Project টি create করেছি ঃ npm create vite@latest frontend -- --template vue
+
+এবং আমি vue এর vite.config.js এমন ভাবে set করেতে চাই জাতে তা build করলে তা buil file Django এর static file এ store হয়ে।
+জাতে আমি Django Template এর ভেতর vue এর component কে render করতে পারি।
+
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+
+import path from "path";
+
+// For Tailwind CSS
+import tailwindcss from "@tailwindcss/vite";
+
+import { fileURLToPath, URL } from "node:url";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      vue: "vue/dist/vue.esm-bundler.js", 
+    },
+  },
+
+  build: {
+    outDir: path.resolve(__dirname, "../static/vue"),
+    emptyOutDir: true,
+    cssCodeSplit: false,
+    assetsDir: "assets",
+    manifest: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, "src/main.js"),
+      output: {
+        entryFileNames: "assets/main.js",
+        chunkFileNames: "assets/[name].js",
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith(".css")) {
+            return "assets/style.css";
+          }
+          return "assets/[name][extname]";
+        },
+      },
+    },
+  },
+});
+
+আমি কে ভাবে বলে দিব যে vue index.html হেসেবে আমার master.html কে বুঝবে।
+├── templates/             
+│   └── layouts/
+|       └── master.html
+
+আমার master.html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Master {% endblock title %}</title>
+
+    <!-- =========================================================================== -->
+    <!-- Vue JS Connection -->
+    {% if debug %}
+    <!-- Load from Vite Dev Server in development mode -->
+    <script type="module" src="http://localhost:5173/src/main.js"></script>
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    {% else %}
+    <!-- Load compiled static files in production -->
+    <link rel="stylesheet" href="{% static 'vue/assets/style.css' %}">
+    <script type="module" src="{% static 'vue/assets/main.js' %}"></script>
+    {% endif %}
+    <!-- =========================================================================== -->
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    {% block styles %}{% endblock styles %}
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 class="text-3xl font-bold text-center bg-blue-500 text-white p-4 rounded-lg shadow-md">
+            Test Tailwind CSS - Working!
+        </h1>
+
+        <h1 class="raw_css">
+            Test RAW CSS
+        </h1>
+        
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    {% block js %} {% endblock js %}
+</body>
+
+</html>
+
+আমার frontend\src\main.js
+import { createApp } from 'vue'
+import './style.css'
+
+
+const app = createApp({});
+
+import { DashboardComponent } from "../../apps/auth/assets/js/app.js";
+app.component("admin-dashboard", DashboardComponent);
+
+app.mount("#app");

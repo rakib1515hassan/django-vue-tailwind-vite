@@ -11,11 +11,11 @@
     <!-- =========================================================================== -->
     <!-- Vue JS Connection -->
     {% if debug %}
-    <!-- Load from Vite Dev Server in development mode -->
-    <script type="module" src="http://localhost:5173/src/main.js"></script>
+    <!-- Vite Dev Server during development -->
     <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/src/main.js"></script>
     {% else %}
-    <!-- Load compiled static files in production -->
+    <!-- Production build files -->
     <link rel="stylesheet" href="{% static 'vue/assets/style.css' %}">
     <script type="module" src="{% static 'vue/assets/main.js' %}"></script>
     {% endif %}
