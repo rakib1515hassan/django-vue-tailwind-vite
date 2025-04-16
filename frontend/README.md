@@ -12,6 +12,7 @@ npm create vite@latest my-vue-app -- --template vue-ts
 
 ### Stracture 
 
+```bash
 frontend/
 ├── node_modules/
 ├── public/
@@ -23,8 +24,7 @@ frontend/
 ├── index.html
 ├── package.json
 ├── vite.config.js
-
-
+```
 
 
 ## vite.config.js
