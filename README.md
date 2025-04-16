@@ -75,6 +75,10 @@ python manage.py createsuperuser
 ```bash
 admin@test.com
 ```
+#### Phone Number:
+```bash
+01500000001
+```
 #### Password:
 ```bash
 admin
