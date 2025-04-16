@@ -83,3 +83,10 @@ npm install vue-router@4
 ```bash
 npm install pinia
 ```
+
+
+
+## npm Cache clean:
+```bash
+npm cache clean --force
+```

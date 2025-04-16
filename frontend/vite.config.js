@@ -3,14 +3,11 @@ import vue from "@vitejs/plugin-vue";
 
 import path from "path";
 
-// For Tailwind CSS
-import tailwindcss from "@tailwindcss/vite";
-
 import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue()],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -19,7 +16,7 @@ export default defineConfig({
   },
 
   build: {
-    outDir: path.resolve(__dirname, "../static/vue"),
+    outDir: path.resolve(__dirname, "../static/vue"),   // <-- output in Django static
     emptyOutDir: true,
     cssCodeSplit: false,
     assetsDir: "assets",
@@ -30,7 +27,7 @@ export default defineConfig({
         entryFileNames: "assets/main.js",
         chunkFileNames: "assets/[name].js",
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith(".css")) {
+          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
             return "assets/style.css";
           }
           return "assets/[name][extname]";

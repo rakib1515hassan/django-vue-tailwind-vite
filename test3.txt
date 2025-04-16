@@ -166,3 +166,10 @@ import { DashboardComponent } from "../../apps/auth/assets/js/app.js";
 app.component("admin-dashboard", DashboardComponent);
 
 app.mount("#app");
+
+
+
+
+
+
+Production mode এ hashed filenames use করতে চাইলে, vite-manifest.json ব্যবহার করে Django টেমপ্লেটেও auto load করতে পারো। চাইলে এটার জন্যও setup করে দিতে পারি।
