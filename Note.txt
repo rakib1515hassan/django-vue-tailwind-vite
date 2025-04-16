@@ -1,0 +1,22 @@
+## 1. To delete node_modules:
+>> rd /s /q node_modules
+
+
+## 2. To delete package-lock.json:
+>> del package-lock.json
+
+
+## 3. Combined command to delete both:
+>> rd /s /q node_modules && del package-lock.json
+
+
+## 4. Remove static/vue
+>> rd /s /q "..\static\vue"
+
+
+# Windows
+rd /s /q "..\static\vue" "node_modules\.vite"
+del package-lock.json
+
+# Linux/Mac
+rm -rf ../static/vue node_modules/.vite package-lock.json

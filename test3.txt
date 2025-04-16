@@ -1,0 +1,2 @@
+I create a vue 3 project infront of the Django Project. 
+My project stracture 

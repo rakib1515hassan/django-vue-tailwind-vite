@@ -1,0 +1,71 @@
+django-template /
+│
+├── manage.py
+├── requirements.txt
+├── .env
+│
+├── config/              
+│   ├── __init__.py
+│   ├── settings/   
+|   |   ├── __init__.py
+|   │   ├── base.py      
+|   │   ├── local.py
+|   │   ├── production.py
+|   │   └── test.py 
+|   │
+│   ├── services/   
+|   |   ├── __init__.py
+|   │   ├── celery.py 
+|   │   ├── email.py
+|   │   ├── sms.py
+|   │   └── social_auth.py
+|   │ 
+│   ├── packege/   
+|   |   ├── __init__.py
+|   │   ├── ckeditor.py  
+|   │   ├── drf.py
+|   │   └── jwt.py
+|   │    
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── apps/                   
+│   ├── __init__.py
+│   └── "My All Apps Define in here"  
+|
+├── apis/                   
+│   ├── __init__.py
+│   └── "My All Apis Define in here"              
+│
+├── frontend/        // Here i setup my Vue project                 
+│   ├── public/
+│   ├── src/
+|   │   ├── assets/
+|   │   ├── components/
+|   │   ├── App.vue
+|   │   ├── main.js
+|   │   └── style.css
+│   |
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+│
+│
+├── templates/             
+│   ├── base.html
+│   └── 404.html
+│
+├── static/                 
+│   ├── css/
+│   ├── js/
+│   └── vue/
+|       ├── assets/main.js
+|       └── assets/style.css
+│
+├── media/                 
+│
+└── README.md           
+
+
+Install Vue project like: npm create vite@latest my-vue-app -- --template vue

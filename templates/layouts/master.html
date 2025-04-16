@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Master {% endblock title %}</title>
+
+    <!-- =========================================================================== -->
+    <!-- Vue JS Connection -->
+    {% if debug %}
+    <!-- Load from Vite Dev Server in development mode -->
+    <script type="module" src="http://localhost:5173/src/main.js"></script>
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    {% else %}
+    <!-- Load compiled static files in production -->
+    <link rel="stylesheet" href="{% static 'vue/assets/style.css' %}">
+    <script type="module" src="{% static 'vue/assets/main.js' %}"></script>
+    {% endif %}
+    <!-- =========================================================================== -->
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    {% block styles %}{% endblock styles %}
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 class="text-3xl font-bold text-center bg-blue-500 text-white p-4 rounded-lg shadow-md">
+            Test Tailwind CSS - Working!
+        </h1>
+
+        <h1 class="raw_css">
+            Test RAW CSS
+        </h1>
+        
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    {% block js %} {% endblock js %}
+</body>
+
+</html>
