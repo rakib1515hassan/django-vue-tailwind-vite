@@ -2,11 +2,11 @@
 
 ## 1. Create Vertual Invironments
 
-### Windows 
+#### Windows 
 ```bash
 py -m venv env
 ```
-### Linux
+#### Linux
 ```bash
 python3 -m venv env
 ```
@@ -14,12 +14,12 @@ python3 -m venv env
 
 ## 2. Activate Virtual Invironments
 
-### Windows 
+#### Windows 
 ```bash
 env\Scripts\activate
 ```
 
-### Linux
+#### Linux
 ```bash
 source env/bin/activate
 ```
