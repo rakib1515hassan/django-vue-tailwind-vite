@@ -89,3 +89,9 @@ admin
 ```bash
 python manage.py runserver
 ```
+
+
+## 11. Django production mode এ গেলে, তোমাকে collectstatic চালাতে হবে:
+```bash
+python manage.py collectstatic
+```

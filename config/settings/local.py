@@ -5,7 +5,7 @@ from .base import *      # Import all files from the base directory
 SECRET_KEY = env('SECRET_KEY')
 
 
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+# DEBUG = env.bool('DJANGO_DEBUG', default=True)
 
 
 ALLOWED_HOSTS = ['*']

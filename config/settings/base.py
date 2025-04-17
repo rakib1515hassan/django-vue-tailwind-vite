@@ -206,7 +206,15 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
+##! NOTE:- 
+"""
+    ->  Local PC তে Django runserver দিয়ে run করলে (DEBUG=False):
+    তখন Django static serve করে না by default, তাই static এর সব file কে Not Found দেখাবে।
+    
+    -> সমাধান (Local এ runserver দিয়ে DEBUG=False এ test করার জন্য):
+    python manage.py runserver --insecure
 
+"""
 
 
 MEDIA_URL = '/media/'

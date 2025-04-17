@@ -7,16 +7,19 @@ import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
 export default defineConfig({
+  // base: "/static/vue/",
+
   plugins: [vue()],
+  
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
-      vue: "vue/dist/vue.esm-bundler.js", 
+      vue: "vue/dist/vue.esm-bundler.js",
     },
   },
 
   build: {
-    outDir: path.resolve(__dirname, "../static/vue"),   // <-- output in Django static
+    outDir: path.resolve(__dirname, "../static/vue"), // <-- output in Django static
     emptyOutDir: true,
     cssCodeSplit: false,
     assetsDir: "assets",
