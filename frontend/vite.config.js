@@ -7,10 +7,10 @@ import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
 export default defineConfig({
-  // base: "/static/vue/",
+  // base: "/static/vue/", // এটা দিলে vue http://localhost:5173/static/vue/ এই ভাবে run হবে।
 
   plugins: [vue()],
-  
+
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
