@@ -18,6 +18,10 @@ export default defineConfig({
     },
   },
 
+  css: {
+    postcss: "./postcss.config.js",
+  },
+
   build: {
     outDir: path.resolve(__dirname, "../static/vue"), // <-- output in Django static
     emptyOutDir: true,
