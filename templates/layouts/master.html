@@ -9,9 +9,17 @@
     <title>{% block title %} Master {% endblock title %}</title>
 
     <!-- =========================================================================== -->
-    <!-- Vue JS Connection -->
+    <!-- ========================( Vue JS Connection )============================== -->
+    <!--  -->
+    {% if debug %}
+    <!-- Vite Dev Server during development -->
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/src/main.js"></script>
+    {% else %}
+    <!-- Production build files -->
     <link rel="stylesheet" href="{% static 'vue/assets/style.css' %}">
     <script type="module" src="{% static 'vue/assets/main.js' %}"></script>
+    {% endif %}
     <!-- =========================================================================== -->
 
     <meta name="csrf-token" content="{{ csrf_token }}">
@@ -19,80 +27,11 @@
 </head>
 
 <body>
-
-    <div>
-        <h1>Vue3 + Vite + Tailwindcss + Django</h1>
-    </div>
-
     <div id="app">
-        <div>
-            <!-- ১. ব্যাকগ্রাউন্ড কালার এবং টেক্সট স্টাইল: -->
-            <div class="bg-blue-500 text-white p-4">
-                This is a blue background with white text.
-            </div>
-        
-            <!-- ২. মার্জিন এবং প্যাডিং: -->
-            <div class="m-4 p-6 border border-gray-300">
-                This div has margin of 4 and padding of 6.
-            </div>
-        
-            <!-- ৩. টেক্সট সাইজ এবং ফন্ট ওয়েট: -->
-            <h1 class="text-3xl font-bold text-center">
-                This is a large bold heading
-            </h1>
-        
-            <!-- ৪. রাউন্ডেড কর্নার: -->
-            <button class="bg-green-500 text-white py-2 px-4 rounded-lg">
-                Button with rounded corners
-            </button>
-        
-            <!-- ৫. শ্যাডো: -->
-            <div class="bg-white p-6 shadow-lg">
-                This div has a large shadow.
-            </div>
-        
-            <!-- ৬. ফ্লেক্সবক্স: -->
-            <div class="flex justify-center items-center h-screen">
-                <div class="bg-red-500 text-white p-6">
-                    Centered content
-                </div>
-            </div>
-        
-            <!-- ৭. হোভার ইফেক্ট: -->
-            <button class="bg-blue-500 text-white py-2 px-4 hover:bg-blue-700">
-                Hover me!
-            </button>
-        
-            <!-- ৮. গ্রিড লেআউট: -->
-            <div class="grid grid-cols-3 gap-4">
-                <div class="bg-yellow-300 p-4">Item 1</div>
-                <div class="bg-yellow-300 p-4">Item 2</div>
-                <div class="bg-yellow-300 p-4">Item 3</div>
-            </div>
-        
-            <!-- ৯. টাইপোগ্রাফি: -->
-            <p class="text-gray-800 font-serif text-lg">
-                This is a paragraph with custom typography.
-            </p>
-        
-            <!-- ১০. সিম্পল কার্ড: -->
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img class="w-full" src="https://placehold.co/150x150" alt="Image">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Card Title</div>
-                    <p class="text-gray-700 text-base">
-                        Some content inside the card to check if Tailwind is working.
-                    </p>
-                </div>
-            </div>
-        
-            <!-- ১১. ফিক্সড পজিশন: -->
-            <div class="fixed bottom-0 right-0 m-4 bg-blue-500 text-white p-4">
-                Fixed bottom-right corner button
-            </div>
-        </div>
-    </div>
+        {% block content %}
 
+        {% endblock content %}
+    </div>
     {% block js %} {% endblock js %}
 </body>
 

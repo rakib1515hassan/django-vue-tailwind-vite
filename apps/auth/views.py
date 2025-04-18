@@ -39,8 +39,7 @@ from apps.auth.forms import RegistrationForm
 
 # Create your views here.
 class Dashboard(generic.TemplateView):
-    # template_name = 'auth/dashboard.html'
-    template_name = 'layouts/master.html'
+    template_name = 'auth/dashboard.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

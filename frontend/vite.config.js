@@ -5,6 +5,7 @@ import path from "path";
 
 import { fileURLToPath, URL } from "node:url";
 
+
 // https://vite.dev/config/
 export default defineConfig({
   // base: "/static/vue/", // এটা দিলে vue http://localhost:5173/static/vue/ এই ভাবে run হবে।

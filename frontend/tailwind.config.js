@@ -1,5 +1,10 @@
 export default {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
+    content: [
+        './src/**/*.{js,vue}',
+        '../templates/**/*.html',
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
 };

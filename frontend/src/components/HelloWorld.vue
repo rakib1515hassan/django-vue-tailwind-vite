@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <h1 class="text-3xl font-bold underline bg-red-500">
+    <h1 class="bg-red-500">
       Bangladesh
     </h1>
   </div>
