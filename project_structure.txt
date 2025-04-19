@@ -31,8 +31,18 @@ django-template /
 │   └── asgi.py
 │
 ├── apps/                   
-│   ├── __init__.py
-│   └── "My All Apps Define in here"  
+│   ├── auth/
+|   │   ├── templates/auth/dashboard.html       ← এখানে আমার auth related html থাকবে
+|   │   ├── assets/js/components/Dashboard.vue  ← এখানে আমার auth related components থাকবে
+|   │   ├── assets/js/app.js                    ← এখানে আমার auth এর components গুলোকে export করি   
+|   │   ├── __init__.py
+|   │   ├── apps.py
+|   │   ├── admin.py
+|   │   ├── models.py
+|   │   ├── urls.py
+|   │   └── views.py
+│   ├── Others apps                       ← এখানে আমার বাকি app গুলো একই stracture এ থাকবে                                    
+│   └── urls.py 
 |
 ├── apis/                   
 │   ├── __init__.py
